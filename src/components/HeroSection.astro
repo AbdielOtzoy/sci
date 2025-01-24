@@ -1,0 +1,55 @@
+---
+import Section from "./Section.astro";
+
+const slides = [
+  {
+    title: "Construye con nosotros",
+    description: "Solidez y precisión para proyectos que trascienden",
+    image: "/images/bg1.webp",
+    buttonLabel: "Conócenos",
+    path: "/about",
+  },
+  {
+    title: "Conoce nuestros servicios",
+    description: "Innovación y calidad para tu proyecto",
+    image: "/images/bg2.jpg",
+    buttonLabel: "Ver servicios",
+    path: "/services",
+  },
+  {
+    title: "Contacta con nosotros",
+    description: "Estamos para ayudarte",
+    image: "/images/bg3.webp",
+    buttonLabel: "Contáctanos",
+    path: "/contact",
+  },
+];
+
+let currentIndex = 0;
+---
+
+<section class="relative h-screen bg-black">
+  <Section
+    title={slides[currentIndex].title}
+    description={slides[currentIndex].description}
+    image={slides[currentIndex].image}
+    buttonLabel={slides[currentIndex].buttonLabel}
+    path={slides[currentIndex].path}
+    currentIndex={currentIndex}
+    class="bg-cover bg-center bg-no-repeat"
+  />
+
+  <!-- Navigation buttons -->
+  <button
+    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black w-10 h-10 prev"
+    aria-label="Previous Slide"
+  >
+    &larr;
+  </button>
+  <button
+    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black w-10 h-10 next"
+    aria-label="Next Slide"
+  >
+    &rarr;
+  </button>
+</section>

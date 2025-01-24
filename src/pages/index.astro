@@ -1,11 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Carousel from "../components/Carousel";
+import HeroSection from "../components/HeroSection.astro";
+import Navbar from "../components/Navbar.astro";
+import TextSection from "../components/TextSection.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="SCI - About Us">
+	<div>
+		<Navbar />
+		<Carousel client:load />
+		<div class="relative">
+			<!-- Triángulo más grande y transparente -->
+			<div
+				class="absolute bottom-0 left-0 w-full h-0 border-l-[0vw] border-r-[70vw] border-b-[30px] md:border-b-[70px] border-l-transparent border-b-light-blue-300 opacity-50"
+			>
+			</div>
+
+			<!-- Triángulo existente -->
+			<div
+				class="absolute bottom-0 left-0 w-full h-0 border-l-[100vw] border-r-[50vw] border-b-[50px] md:border-b-[90px] border-l-transparent border-r-transparent border-royal-blue"
+			>
+			</div>
+		</div>
+
+		<TextSection />
+	</div>
 </Layout>

@@ -1,0 +1,30 @@
+---
+const {
+  title,
+  description,
+  image,
+  buttonLabel,
+  path,
+  index,
+  currentIndex,
+  class: sectionClass,
+} = Astro.props;
+---
+
+<section
+  class=`h-screen bg-black relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden `
+  style={`background-image: url(${image || "/placeholder.svg"})`}
+>
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div
+    class="relative z-10 p-6 flex flex-col justify-center md:mx-10 items-start h-full text-white"
+  >
+    <h3 class="text-6xl font-semibold mb-4">{title}</h3>
+    <p class="text-xl">{description}</p>
+    <a href={path}>
+      <button class="mt-4 bg-white text-black px-4 py-2 rounded-md">
+        {buttonLabel}
+      </button>
+    </a>
+  </div>
+</section>
