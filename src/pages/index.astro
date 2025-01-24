@@ -1,14 +1,16 @@
 ---
 import Carousel from "../components/Carousel";
 import HeroSection from "../components/HeroSection.astro";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar";
 import TextSection from "../components/TextSection.astro";
 import Layout from "../layouts/Layout.astro";
+
+import "../styles/global.css";
 ---
 
 <Layout title="SCI - About Us">
 	<div>
-		<Navbar />
+		<Navbar client:load />
 		<Carousel client:load />
 		<div class="relative">
 			<!-- Triángulo más grande y transparente -->
@@ -19,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
 
 			<!-- Triángulo existente -->
 			<div
-				class="absolute bottom-0 left-0 w-full h-0 border-l-[100vw] border-r-[50vw] border-b-[50px] md:border-b-[90px] border-l-transparent border-r-transparent border-royal-blue"
+				class="absolute bottom-0 left-0 w-full h-0 border-l-[100vw] border-r-[0vw] border-b-[50px] md:border-b-[90px] border-l-transparent border-r-transparent border-royal-blue"
 			>
 			</div>
 		</div>
