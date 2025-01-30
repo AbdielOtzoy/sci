@@ -2,22 +2,33 @@
 
 ---
 
-<section>
+<section class="relative bg-royal-blue text-white overflow-hidden">
   <div
-    class="relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden bg-royal-blue"
+    class="p-6 flex flex-col justify-center md:mx-10 items-start md:h-[350px] text-white"
   >
-    <div
-      class="p-6 flex flex-col justify-center md:mx-10 items-start h-[350px] text-white"
-    >
-      <p class="prose prose-invert text-xl">
+    <!-- Contenedor del texto -->
+    <div class="relative z-10 max-w-2xl max-md:mt-10">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Construyendo con excelencia y valores
+      </h2>
+      <p class="text-lg md:text-xl leading-relaxed mb-4">
         Todo comenzó con el propósito de construir estructuras sólidas y
         sostenibles basadas en la excelencia y los valores. SCI trabaja para
         transformar ideas en obras que fortalecen comunidades y contribuyen al
-        desarrollo, construyendo un legado de confianza y calidad
+        desarrollo, construyendo un legado de confianza y calidad.
       </p>
-      <p class="prose text-slate-500 text-xl">
-        Servicios de Construcción e Ingeniería. -SCI-
+      <p class="text-lg text-slate-300 italic">
+        Servicios de Construcción e Ingeniería -SCI-
       </p>
+    </div>
+
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-y-0 right-24 w-2/3 md:w-1/2 lg:w-1/3 opacity-80">
+      <img
+        src="https://vivicasa.com.gt/wp-content/uploads/2020/08/bg-house.png"
+        alt="Casa en construcción"
+        class="object-cover object-center md:object-right w-full h-full"
+      />
     </div>
   </div>
 </section>

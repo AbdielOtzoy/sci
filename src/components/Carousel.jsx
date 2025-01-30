@@ -114,7 +114,7 @@ const Carousel = () => {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <button className="mt-4 bg-black text-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
+            <button className="mt-4 bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-black hover:text-white transition-all duration-300 ease-in-out">
               {slides[currentIndex].buttonLabel}
             </button>
           </a>

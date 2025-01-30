@@ -1,0 +1,70 @@
+---
+const characteristics = [
+  {
+    title: "PRECISIÓN Y CALIDAD",
+    description:
+      "Soluciones constructivas precisas y de alta calidad para garantizar la satisfacción del cliente.",
+    image: "icons/icon1.webp",
+  },
+  {
+    title: "INNOVACIÓN Y SOSTENIBILIDAD",
+    description:
+      "Innovación tecnológica y prácticas sostenibles para los desafíos actuales de la construcción.",
+    image: "icons/icon2.webp",
+  },
+  {
+    title: "ATENCIÓN PERSONALIZADA",
+    description:
+      "Comunicación clara y soluciones adaptadas a las necesidades de cada cliente.",
+    image: "icons/icon3.webp",
+  },
+  {
+    title: "COMPROMISO CON LA EXCELENCIA",
+    description:
+      "Superamos expectativas con precisión, confianza y responsabilidad en cada proyecto.",
+    image: "icons/icon4.webp",
+  },
+  {
+    title: "ETICA PROFESIONAL",
+    description:
+      "Ética, transparencia y responsabilidad en cada etapa de nuestros proyectos.",
+    image: "icons/icon5.webp",
+  },
+];
+---
+
+<section class="relative bg-royal-blue text-white py-12 px-4 sm:px-8 lg:px-16">
+  <div class="max-w-7xl mx-auto">
+    <!-- Título y descripción -->
+    <div class="text-center mb-12">
+      <h2 class="font-bold text-4xl sm:text-5xl mb-4">Nuestro enfoque</h2>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+        Cuidamos cada detalle, desde el diseño hasta la ejecución final de tu
+        proyecto.
+      </p>
+    </div>
+
+    <!-- Características -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        characteristics.map((characteristic) => (
+          <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="bg-royal-blue-light rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-6">
+              <img
+                src={characteristic.image}
+                alt={characteristic.title}
+                class="w-12 h-12 invert"
+              />
+            </div>
+            <h3 class="font-bold text-2xl text-center mb-4">
+              {characteristic.title}
+            </h3>
+            <p class="text-slate-300 text-center">
+              {characteristic.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
