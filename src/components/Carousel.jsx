@@ -5,7 +5,7 @@ const Carousel = () => {
     {
       title: "Construye con nosotros",
       description: "Solidez y precisión para proyectos que trascienden",
-      image: "/images/bg1.webp",
+      image: "/images/bg1.jpg",
       buttonLabel: "Conócenos",
       path: "/about",
     },

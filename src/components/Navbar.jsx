@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100); // Cambia de fondo después de 50px de scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="bg-navy-blue p-4 fixed top-0 left-0 w-full z-50 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-royal-blue shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <a href="/" className="text-2xl font-bold text-white">
           SCI
@@ -13,27 +27,19 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav>
-          <ul className="flex space-x-4 max-sm:hidden">
-            <li>
-              <a href="/" className="hover:text-orange text-white">
-                Inicio
-              </a>
-            </li>
-            <li>
-              <a href="/services" className="hover:text-orange text-white">
-                Servicios
-              </a>
-            </li>
-            <li>
-              <a href="/about" className="hover:text-orange text-white">
-                ¿Quiénes somos?
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:text-orange text-white">
-                Contacto
-              </a>
-            </li>
+          <ul className="hidden sm:flex space-x-6 text-white">
+            {["Inicio", "Servicios", "¿Quiénes somos?", "Contacto"].map(
+              (item, index) => (
+                <li key={index}>
+                  <a
+                    href={`/${item.toLowerCase().replace(/\s+/g, "")}`}
+                    className="hover:text-orange transition"
+                  >
+                    {item}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
         </nav>
 
