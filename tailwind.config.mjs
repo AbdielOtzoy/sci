@@ -6,7 +6,7 @@ export default {
     	extend: {
     		colors: {
     			'royal-blue': 'rgb(2, 21, 37)',
-    			'royal-blue-light': 'rgb(4, 41, 70)',
+    			'royal-blue-light': 'rgb(8, 51, 88)',
     			'royal-blue-mid': 'rgb(0, 10, 17)',
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',

@@ -13,6 +13,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const items = [
+    {
+      name: "Inicio",
+      link: "/"
+    },
+    {
+      name: "Servicios",
+      link: "/services"
+    },
+    {
+      name: "¿Quiénes somos?",
+      link: "/about"
+    },
+    {
+      name: "Contacto",
+      link: "/contact"
+    }
+  ]
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -28,14 +47,14 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav>
           <ul className="hidden sm:flex space-x-6 text-white">
-            {["Inicio", "Servicios", "¿Quiénes somos?", "Contacto"].map(
+            {items.map(
               (item, index) => (
                 <li key={index}>
                   <a
-                    href={`/${item.toLowerCase().replace(/\s+/g, "")}`}
+                    href={item.link}
                     className="hover:text-orange transition"
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               )
@@ -70,42 +89,18 @@ const Navbar = () => {
             
             <div className="w-3/5 h-full bg-royal-blue p-5">
               <ul className="space-y-6 mt-4">
-              <li>
-                <a
-                  href="/"
-                  className="block hover:text-orange text-xl"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Inicio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services"
-                  className="block hover:text-orange text-xl"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Servicios
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/about"
-                  className="block hover:text-orange text-xl"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  ¿Quiénes somos?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="block hover:text-orange text-xl"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Contacto
-                </a>
-              </li>
+                {items.map(
+                  (item, index) => (
+                    <li key={index}>
+                      <a
+                        href={item.link}
+                        className="hover:text-orange transition"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  )
+                )}
             </ul>
             </div>
             <div className=" w-2/5 h-full flex items-center justify-between"

@@ -1,0 +1,33 @@
+---
+import Footer from "@/components/Footer.astro";
+import Navbar from "@/components/Navbar";
+import Layout from "@/layouts/Layout.astro";
+import "../styles/global.css";
+
+---
+
+<Layout title="About Us">
+  <div>
+    <Navbar client:load />
+    <section class="relative h-screen bg-black">
+      <div
+        class="h-screen bg-black relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden"
+        style={{ backgroundImage: `url(/images/about/aboutbg.jpg)` }}
+      >
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-white p-6">
+          <h1 class="text-4xl md:text-6xl font-bold text-center">About Us</h1>
+        </div>
+      </div>
+    </section>
+    <section class="bg-white">
+      <div class="container mx-auto py-12 px-4">
+        <h2 class="text-3xl font-bold text-center">Our Mission</h2>
+        <p class="text-lg text-center mt-4">
+          Our mission is to provide the best construction services to our clients, ensuring quality, time, and budget.
+        </p>
+      </div>
+    </section>
+    <Footer />
+  </div>
+</Layout>
