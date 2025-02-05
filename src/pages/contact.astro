@@ -4,47 +4,79 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import Navbar from "@/components/Navbar";
 ---
-
-<Layout title="Contact">
-  <div>
+<Layout title="Sobre nosotros">
+  <div class="flex flex-col min-h-screen">
     <Navbar client:load />
-    <section class="relative h-screen bg-black">
+    
+    <section class="relative flex-1">
       <div
-        class="h-screen bg-black relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden"
-        style={{ backgroundImage: `url(/images/contact/contactbg.jpg)` }}
+        class="md:min-h-screen h-auto relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden"
+        style={{ backgroundImage: `url(/images/bgcontact2.jpg)` }}
       >
         <div class="absolute inset-0 bg-black/50"></div>
-        <div class="relative z-10 flex flex-col justify-center items-center h-full text-white p-6">
-          <h1 class="text-4xl md:text-6xl font-bold text-center">Contact</h1>
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-white p-6 mt-20">
+          <h1 class="text-4xl md:text-6xl font-bold text-center">Contacto</h1>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl w-full">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20">
+              <div class="mb-4">
+                <h3 class="text-xl font-semibold">Contáctanos</h3>
+                <p class="text-slate-100 dark:text-gray-300">Completa el formulario y te contestaremos lo más pronto posible.</p>
+              </div>
+              <form method="POST" action="#" class="space-y-4">
+                <div>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Tu nombre" 
+                    required 
+                    class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Tu email" 
+                    required 
+                    class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <textarea 
+                    name="message" 
+                    placeholder="Deja tu mensaje" 
+                    required 
+                    class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit" 
+                  class="w-full mt-4 bg-white text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition"
+                >Send Message</button>
+              </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20">
+              <div class="mb-4">
+                <h3 class="text-xl font-semibold">Información de contacto</h3>
+                <p class="text-slate-100 mt-2 dark:text-gray-300">No dude en ponerse en contacto a través de cualquiera de estos medios.</p>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                  <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4z" fill="none"/>
+                    <path d="M22 6.5V17c0 1.65-1.35 3-3 3H5c-1.65 0-3-1.35-3-3V6.5L12 13l10-6.5zM12 11L3 6h18l-9 5z"/>
+                  </svg>
+                  <span>atencion.sci.gt@gmail.com</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>11 avenida, 16-60, zona 2, Ciudad de Guatemala</span>
+                </div>
         </div>
-      </div>
-    </section>
-    <section class="bg-white">
-      <div class="container mx-auto py-12 px-4">
-        <h2 class="text-3xl font-bold text-center">Contact Us</h2>
-        <p class="text-lg text-center mt-4">
-          If you have any questions or need more information, please contact us.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-          <div>
-            <h3 class="text-xl font-bold">Address</h3>
-            <p class="mt-2">1234 Main St, Suite 200</p>
-            <p>Springfield, IL 62701</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold">Phone</h3>
-            <p class="mt-2">(217) 555-1234</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold">Email</h3>
-            <p class="mt-2">info
-              <span class="text-blue-500">@</span>
-              example.com
-            </p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold">Hours</h3>
-            <p class="mt-2">Monday - Friday: 8am - 5pm</p>
           </div>
         </div>
       </div>

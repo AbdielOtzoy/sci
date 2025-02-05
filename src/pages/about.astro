@@ -6,28 +6,38 @@ import "../styles/global.css";
 
 ---
 
-<Layout title="About Us">
-  <div>
+<Layout title="Sobre nosotros">
+  <div class="flex flex-col min-h-screen">
     <Navbar client:load />
-    <section class="relative h-screen bg-black">
+    
+    <section class="relative flex-1">
       <div
-        class="h-screen bg-black relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden"
-        style={{ backgroundImage: `url(/images/about/aboutbg.jpg)` }}
+        class="md:min-h-screen h-auto relative bg-cover bg-center bg-no-repeat shadow-lg overflow-hidden"
+        style={{ backgroundImage: `url(/images/bgabout.jpg)` }}
       >
         <div class="absolute inset-0 bg-black/50"></div>
-        <div class="relative z-10 flex flex-col justify-center items-center h-full text-white p-6">
-          <h1 class="text-4xl md:text-6xl font-bold text-center">About Us</h1>
+        <div class="relative z-10 flex flex-col justify-center items-center min-h-[70vh] mt-28 text-white p-6 max-md:mt-14">
+          <h1 class="text-4xl md:text-6xl font-bold text-center">Sobre nosotros</h1>
+          <p class="mt-4 text-lg sm:text-xl text-center max-w-4xl">
+            Somos una constructora guatemalteca especializada en ingeniería y proyectos, comprometida con la calidad y la innovación para el desarrollo de nuestras comunidades.
+          </p>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl w-full">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20">
+              <h4 class="text-xl sm:text-2xl font-semibold">VISIÓN</h4>
+              <p class="mt-2 text-gray-200">
+                Ser reconocidos como una empresa constructora líder en Guatemala, comprometida con la excelencia, la innovación y los valores cristianos, creando estructuras que inspiren confianza, fortalezcan comunidades y reflejen el propósito divino en cada proyecto.
+              </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20">
+              <h4 class="text-xl sm:text-2xl font-semibold">MISIÓN</h4>
+              <p class="mt-2 text-gray-200">
+                Diseñar y construir obras de alta calidad, fundamentadas en principios de integridad, profesionalismo y servicio. Nos esforzamos por transformar ideas en realidades sólidas, aportando soluciones estructurales que promuevan el desarrollo sostenible, mientras honramos a Dios a través de nuestro trabajo y nuestras relaciones.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="bg-white">
-      <div class="container mx-auto py-12 px-4">
-        <h2 class="text-3xl font-bold text-center">Our Mission</h2>
-        <p class="text-lg text-center mt-4">
-          Our mission is to provide the best construction services to our clients, ensuring quality, time, and budget.
-        </p>
-      </div>
-    </section>
-    <Footer />
+    <Footer class="block" />
   </div>
 </Layout>
