@@ -37,7 +37,7 @@ const Carousel = () => {
 
   // Función para ir al siguiente slide
   const nextSlide = () => {
-    if (animating) return;
+    if (animating || window.innerWidth <= 768) return;
     resetAutoSlide(); // Reinicia el temporizador del cambio automático
     setAnimating(true);
     setTimeout(() => {
@@ -48,7 +48,7 @@ const Carousel = () => {
 
   // Función para ir al slide anterior
   const prevSlide = () => {
-    if (animating) return;
+    if (animating || window.innerWidth <= 768) return;
     resetAutoSlide(); // Reinicia el temporizador del cambio automático
     setAnimating(true);
     setTimeout(() => {
@@ -62,13 +62,24 @@ const Carousel = () => {
   // Función para reiniciar el temporizador del cambio automático
   const resetAutoSlide = () => {
     clearInterval(autoSlideInterval.current);
-    autoSlideInterval.current = setInterval(nextSlide, 5000); // Reinicia cada 5 segundos
+    if (window.innerWidth > 768) {
+      autoSlideInterval.current = setInterval(nextSlide, 5000); // Reinicia cada 5 segundos solo en desktop
+    }
   };
 
-  // Cambio automático de slides
+  // Cambio automático de slides (solo en desktop)
   useEffect(() => {
-    autoSlideInterval.current = setInterval(nextSlide, 5000);
+    if (window.innerWidth > 768) {
+      autoSlideInterval.current = setInterval(nextSlide, 5000);
+    }
     return () => clearInterval(autoSlideInterval.current); // Limpia el intervalo al desmontar
+  }, []);
+
+  // Forzar el primer slide en móviles
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setCurrentIndex(0); // Siempre muestra el primer slide en móviles
+    }
   }, []);
 
   return (
