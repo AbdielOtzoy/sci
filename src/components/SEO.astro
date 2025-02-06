@@ -1,0 +1,78 @@
+---
+export interface Preload {
+	as: string
+	href: string
+	type: string
+	rel?: "preload" | "prefetch"
+	crossorigin?: string
+}
+
+// Definición de las props del componente
+interface Props {
+	title: string;
+	description: string;
+	preload?: Array<Preload>;
+	canonical?: string;
+	image?: string;
+}
+
+// Extracción de las props
+const {
+	title,
+	description,
+	preload,
+	canonical,
+	image = "https://scontent.fgua9-1.fna.fbcdn.net/v/t39.30808-6/467884518_122099579804634284_8320554520587353321_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=iePRPI-fYBQQ7kNvgHKA28b&_nc_zt=23&_nc_ht=scontent.fgua9-1.fna&_nc_gid=ADwNO5dZ6Y3T_hJ45wYRfDB&oh=00_AYAdNFWW5f-aQQih4hT7J-CCUGPcAmERNmjeP5tV8DBHuQ&oe=67A9E756"
+} = Astro.props as Props;
+
+// Función para determinar la URL canónica
+const determineCanonicalURL = () => {
+	if (Astro.url.host.includes("localhost")) return "http://localhost:4321";
+	return canonical || Astro.url.pathname;
+};
+
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site);
+---
+
+<!-- Título de la página -->
+<title>{title}</title>
+
+<!-- Metadatos básicos -->
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+
+<!-- Precarga de recursos -->
+{
+	preload?.map(({ href, as, type, rel = "preload", crossorigin }) => (
+		<link {rel} {href} {as} {type} {crossorigin} />
+	))
+}
+
+<!-- URL canónica -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Viewport y tema -->
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#021525" /> <!-- Color corporativo de SCI -->
+
+<!-- Palabras clave -->
+<meta name="keywords" content="construcción, SCI, Guatemala, servicios de construcción, obras civiles, arquitectura, ingeniería, proyectos de construcción" />
+
+<!-- Open Graph (Facebook y otras redes sociales) -->
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content="SCI - Servicios de Construcción e Ingeniería" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_GT" /> <!-- Locale para Guatemala -->
+
+<!-- Robots y Googlebot -->
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Íconos y configuración del navegador -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icons/favicon.webp" />
+
+

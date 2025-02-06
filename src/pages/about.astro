@@ -3,10 +3,30 @@ import Footer from "@/components/Footer.astro";
 import Navbar from "@/components/Navbar";
 import Layout from "@/layouts/Layout.astro";
 import "../styles/global.css";
+export interface Preload {
+	as: string
+	href: string
+	type: string
+	rel?: "preload" | "prefetch"
+	crossorigin?: string
+}
+
+const preloadAboutImage: Preload[] = [ 
+  {
+    as: "image",
+    href: "/images/bgabout.jpg",
+    type: "image/jpeg",
+    rel: "preload",
+  },
+]
 
 ---
 
-<Layout title="Sobre nosotros">
+<Layout 
+  title="Sobre nosotros"
+  description="Somos una constructora guatemalteca especializada en ingeniería y proyectos, comprometida con la calidad y la innovación para el desarrollo de nuestras comunidades."
+  preload={preloadAboutImage}
+  >
   <div class="flex flex-col min-h-screen">
     <Navbar client:load />
     

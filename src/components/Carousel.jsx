@@ -75,7 +75,7 @@ const Carousel = () => {
     <section className="relative h-screen bg-black">
       {/* Slide container */}
       <div
-        className={`h-screen bg-black relative bg-cover bg-center bg-no-repeat overflow-hidden duration-700  ${
+        className={`h-screen bg-black relative bg-cover bg-center bg-no-repeat overflow-hidden duration-300  ${
           isPageLoaded ? "opacity-100" : "opacity-0"
         }`}
         style={{ backgroundImage: `url(${slides[currentIndex].image})` }}

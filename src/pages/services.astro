@@ -6,6 +6,14 @@ import { fade } from 'astro:transitions';
 import "../styles/global.css";
 import Footer from "@/components/Footer.astro";
 
+export interface Preload {
+	as: string
+	href: string
+	type: string
+	rel?: "preload" | "prefetch"
+	crossorigin?: string
+}
+
 const services = [
   {
     title: "Construcción y ejecución de obras de infraestructura",
@@ -44,9 +52,20 @@ const services = [
     image: "/images/services/d6.webp",
   },
 ];
+
+const preloadServicesImages: Preload[] = services.map((service) => ({
+  as: "image",
+  href: "/images/services/servicesbg.jpg",
+  type: "image/webp",
+  rel: "preload",
+}));
 ---
 
-<Layout title="Servicios">
+<Layout 
+  title="Servicios"
+  description="Conoce los servicios de construcción integral que ofrecemos en SCI."
+  preload={preloadServicesImages}
+  >
   <div>
     <Navbar client:load />
     

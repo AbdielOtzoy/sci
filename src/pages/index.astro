@@ -1,18 +1,49 @@
 ---
 import Details from "@/components/Details.astro";
 import Carousel from "../components/Carousel";
-import HeroSection from "../components/HeroSection.astro";
+import HeroSection from "@/sections/HeroSection.astro";
 import Navbar from "../components/Navbar";
-import TextSection from "../components/TextSection.astro";
+import TextSection from "../sections/TextSection.astro";
 import Layout from "../layouts/Layout.astro";
 
 import "../styles/global.css";
-import ContactSection from "@/components/ContactSection.astro";
+import ContactSection from "@/sections/ContactSection.astro";
 import Footer from "@/components/Footer.astro";
+export interface Preload {
+	as: string
+	href: string
+	type: string
+	rel?: "preload" | "prefetch"
+	crossorigin?: string
+}
 
+const preloadCarouselImage: Preload[] = [ 
+	{
+		as: "image",
+		href: "/images/bg1.jpg",
+		type: "image/jpeg",
+		rel: "preload",
+	},
+	{
+		as: "image",
+		href: "/images/bg2.jpg",
+		type: "image/jpeg",
+		rel: "preload",
+	},
+	{
+		as: "image",
+		href: "/images/bg3.jpg",
+		type: "image/jpeg",
+		rel: "preload",
+	},
+]
 ---
 
-<Layout title="SCI - About Us">
+<Layout 
+	title="Inicio"
+	description="SCI es una empresa de tecnología que ofrece soluciones de software y hardware para empresas y organizaciones."
+	preload={preloadCarouselImage}
+	>
 	<div>
 		<Navbar client:load />
 		<Carousel client:load />
