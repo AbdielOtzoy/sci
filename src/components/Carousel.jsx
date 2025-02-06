@@ -86,9 +86,9 @@ const Carousel = () => {
             className={`text-6xl font-semibold mb-4 transform transition-all duration-1000 ease-in-out ${
               isPageLoaded
                 ? animating
-                  ? "opacity-0 md:translate-y-8"
-                  : "opacity-100 md:translate-y-0"
-                : "opacity-0 md:translate-y-8"
+                  ? "opacity-0 translate-y-8"
+                  : "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             {slides[currentIndex].title}
@@ -97,9 +97,9 @@ const Carousel = () => {
             className={`text-xl transform transition-all duration-1000 ease-in-out delay-200 ${
               isPageLoaded
                 ? animating
-                  ? "opacity-0 md:translate-y-8"
+                  ? "opacity-0 translate-y-8"
                   : "opacity-100 mdtranslate-y-0"
-                : "opacity-0 md:translate-y-8"
+                : "opacity-0 translate-y-8"
             }`}
           >
             {slides[currentIndex].description}
@@ -109,9 +109,9 @@ const Carousel = () => {
             className={`transition-all duration-1000 ease-in-out transform ${
               isPageLoaded
                 ? animating
-                  ? "opacity-0 md:translate-y-8"
-                  : "opacity-100 md:translate-y-0"
-                : "opacity-0 md:translate-y-8"
+                  ? "opacity-0 translate-y-8"
+                  : "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             <button className="mt-4 bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-black hover:text-white transition-all duration-300 ease-in-out">
